@@ -26,10 +26,13 @@ while (m > 0):
         temp = line.split()
         items.append((temp[0], float(temp[1]), float(temp[2])))
 
-new_item = raw_input("Please enter the values for x and y: ")
-temp = new_item.split()
-x = float(temp[0])
-y = float(temp[1])
+while(True):
+    new_item = raw_input("Please enter the values for x and y: ")
+    temp = new_item.split()
+    if len(temp) == 2 and temp[0].isdigit() and temp[1].isdigit():
+        x = float(temp[0])
+        y = float(temp[1])
+        break
 
 while (x != 1.0 and y != 1.0):
     neighbors = []
@@ -47,7 +50,6 @@ while (x != 1.0 and y != 1.0):
     cat1_distance = 0
     cat2_distance = 0
     print "(1) nearest neighbors: "
-    k_NN = []
     while counter != k:
         print neighbors[counter]
         if cat1 == "":
@@ -65,7 +67,6 @@ while (x != 1.0 and y != 1.0):
             num_cat2 += 1
             cat2_distance += neighbors[counter][3]
         counter += 1
-        k_NN.append(neighbors[counter])
     print ''
     
     if num_cat1 < num_cat2:
@@ -79,7 +80,10 @@ while (x != 1.0 and y != 1.0):
     print ""
     print ""
     
-    new_item = raw_input("Please enter the values for x and y: ")
-    temp = new_item.split()
-    x = float(temp[0])
-    y = float(temp[1])
+    while(True):
+        new_item = raw_input("Please enter the values for x and y: ")
+        temp = new_item.split()
+        if len(temp) == 2 and temp[0].isdigit() and temp[1].isdigit():
+            x = float(temp[0])
+            y = float(temp[1])
+            break
